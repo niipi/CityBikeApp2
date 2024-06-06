@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:latest
+    container_name: db-citybike2
+    env_file:
+      - project.env
+    ports:
+      - '127.0.0.1:5432:5432'
+    volumes:
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./postgres/csv/stations.csv:/docker-entrypoint-initdb.d/csv/stations.csv
+      - ./postgres/csv/od-trips-2023:/docker-entrypoint-initdb.d/csv/od-trips-2023
+      - ./postgres/csv/weather:/docker-entrypoint-initdb.d/csv/weather
+
+volumes:
+  postgres:
