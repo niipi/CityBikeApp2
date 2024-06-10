@@ -26,10 +26,10 @@ public class BikeStation {
     public Integer capacity;
 
     @Column(name="x", nullable = false)
-    public Long x;
+    public Float x;
 
     @Column(name="y", nullable = false)
-    public Long y;
+    public Float y;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "departureStation", cascade = CascadeType.ALL)
     List<Journey> departingJourneys;
@@ -57,11 +57,11 @@ public class BikeStation {
         return capacity;
     }
 
-    public Long getX() {
+    public Float getX() {
         return x;
     }
 
-    public Long getY() {
+    public Float getY() {
         return y;
     }
 
