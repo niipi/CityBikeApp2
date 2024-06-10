@@ -43,3 +43,11 @@ src/App.js,1/e/1e43fa63aecd2127be034b3fb9d4caa172275714
 -.idea/sonarlint/securityhotspotstore/index.pb,8/8/88a9255124c95bdc913197c120a8d560edc59c8e
 I
 src/components/MapView.js,4/5/45cf1bec4be76034d693ba76301bb636c490f4db
+M
+src/context/StationContext.js,5/a/5a4b39ae0fa5a4a686957475caf846068da1133f
+I
+src/context/AppReducer.js,d/f/df4cabe62b9c1ae1d2fc277a747905b245d20f85
+J
+src/context/GlobalState.js,c/5/c5446d17a0aa1e07f06b79d74add5e5c57762d69
+J
+src/assets/locationpin.svg,a/e/ae16ca648b299451f22de3578f2e9eff7d38bd75
