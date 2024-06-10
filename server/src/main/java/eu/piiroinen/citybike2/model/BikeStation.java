@@ -11,7 +11,7 @@ public class BikeStation {
 
     @Id
     @Column(name="station_id")
-    public Long bikeStationId;
+    public Long id;
 
     @Column(name="name", nullable = false)
     public String bikeStationName;
@@ -37,8 +37,8 @@ public class BikeStation {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "returnStation", cascade = CascadeType.ALL)
     List<Journey> returningJourneys;
 
-    public Long getBikeStationId() {
-        return bikeStationId;
+    public Long getId() {
+        return id;
     }
 
     public String getBikeStationName() {
@@ -68,7 +68,7 @@ public class BikeStation {
     @Override
     public String toString() {
         return "BikeStation: " +
-                "bikeStationId=" + bikeStationId +
+                "bikeStationId=" + id +
                 ", bikeStationName='" + bikeStationName + '\'' +
                 ", capacity=" + capacity +
                 ", x=" + x +
@@ -80,11 +80,11 @@ public class BikeStation {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         BikeStation that = (BikeStation) o;
-        return Objects.equals(bikeStationId, that.bikeStationId) && Objects.equals(x, that.x) && Objects.equals(y, that.y);
+        return Objects.equals(id, that.id) && Objects.equals(x, that.x) && Objects.equals(y, that.y);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(bikeStationId, x, y);
+        return Objects.hash(id, x, y);
     }
 }
