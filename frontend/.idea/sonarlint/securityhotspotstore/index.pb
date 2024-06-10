@@ -41,3 +41,5 @@ A
 src/App.js,1/e/1e43fa63aecd2127be034b3fb9d4caa172275714
 ]
 -.idea/sonarlint/securityhotspotstore/index.pb,8/8/88a9255124c95bdc913197c120a8d560edc59c8e
+I
+src/components/MapView.js,4/5/45cf1bec4be76034d693ba76301bb636c490f4db
