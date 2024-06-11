@@ -51,3 +51,5 @@ J
 src/context/GlobalState.js,c/5/c5446d17a0aa1e07f06b79d74add5e5c57762d69
 J
 src/assets/locationpin.svg,a/e/ae16ca648b299451f22de3578f2e9eff7d38bd75
+U
+%src/components/BikeStationInfoCard.js,9/9/998d49507e461fb5e758b7d4b86e6ef1cf4950f7

@@ -6,6 +6,11 @@ export default (state, action) => {
                 ...state,
                 bikestations: payload,
             };
+        case "GET_BIKESTATION":
+            return {
+                ...state,
+                selectedBikeStation: payload,
+            };
         default:
             return state;
     }

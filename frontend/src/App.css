@@ -25,3 +25,27 @@
 .leaflet-container {
   height: 100vh;
 }
+
+.mapContainerDiv {
+  position: relative;
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.infoCard {
+  position: absolute;
+  background: ghostwhite;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  padding-left: 20px;
+  padding-right: 20px;
+  animation: 0.5s ease-out 0s 1 slideInFromRight;
+}

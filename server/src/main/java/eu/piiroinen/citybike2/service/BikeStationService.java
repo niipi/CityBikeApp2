@@ -19,14 +19,12 @@ public class BikeStationService implements BikeStationServiceInterface{
 
     @Autowired
     public BikeStationService(BikeStationRepository bikeStationRepository) {
-        LOG.info(bikeStationRepository.toString());
         this.bikeStationRepository = bikeStationRepository;
     }
 
 
     @Override
     public List<BikeStation> getAllBikeStations() {
-        LOG.info("Calling repository with findAll.");
         return this.bikeStationRepository.findAll();
     }
 
