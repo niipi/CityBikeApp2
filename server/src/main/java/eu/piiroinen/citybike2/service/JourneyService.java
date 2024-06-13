@@ -44,28 +44,28 @@ public class JourneyService implements JourneyServiceInterface{
     }
 
     @Override
-    public int getCountJourneysByDepartureStationId(Long departureStationId) {
+    public Long getCountJourneysByDepartureStationId(Long departureStationId) {
         if (bikeStationRepository.findById(departureStationId).isPresent()) {
             return this.journeyRepository.countJourneysByDepartureStationId(departureStationId);
         } else throw new NoSuchElementException();
     }
 
     @Override
-    public int getCountJourneysByReturnStationId(Long returnStationId) {
+    public Long getCountJourneysByReturnStationId(Long returnStationId) {
         if (bikeStationRepository.findById(returnStationId).isPresent()) {
             return this.journeyRepository.countJourneysByReturnStationId(returnStationId);
         } else throw new NoSuchElementException();
     }
 
     @Override
-    public int getCountJourneysByDepartureStationIdAndDepartureTime(Long departureStationId, Date departureTime) {
+    public Long getCountJourneysByDepartureStationIdAndDepartureTime(Long departureStationId, Date departureTime) {
         if (bikeStationRepository.findById(departureStationId).isPresent()) {
             return this.journeyRepository.countJourneysByDepartureStationIdAndDepartureTime(departureStationId, departureTime);
         } else throw new NoSuchElementException();
     }
 
     @Override
-    public int getCountJourneysByReturnStationIdAndReturnTime(Long returnStationId, Date returnTime) {
+    public Long getCountJourneysByReturnStationIdAndReturnTime(Long returnStationId, Date returnTime) {
         if (bikeStationRepository.findById(returnStationId).isPresent()) {
             return this.journeyRepository.countJourneysByReturnStationIdAndReturnTime(returnStationId, returnTime);
         } else throw new NoSuchElementException();

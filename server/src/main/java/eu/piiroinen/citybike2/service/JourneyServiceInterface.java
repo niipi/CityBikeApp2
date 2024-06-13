@@ -9,8 +9,8 @@ public interface JourneyServiceInterface {
     List<Journey> getJourneysByDepartureStationId(Long departureStationId);
     List<Journey> getJourneysByReturnStationId(Long returnStationId);
     List<Journey> getJourneysByDepartureStationIdAndReturnStationId(Long departureStationId, Long returnStationId);
-    int getCountJourneysByDepartureStationId(Long departureStationId);
-    int getCountJourneysByReturnStationId(Long returnStationId);
-    int getCountJourneysByDepartureStationIdAndDepartureTime(Long departureStationId, Date departureTime);
-    int getCountJourneysByReturnStationIdAndReturnTime(Long returnStationId, Date returnTime);
+    Long getCountJourneysByDepartureStationId(Long departureStationId);
+    Long getCountJourneysByReturnStationId(Long returnStationId);
+    Long getCountJourneysByDepartureStationIdAndDepartureTime(Long departureStationId, Date departureTime);
+    Long getCountJourneysByReturnStationIdAndReturnTime(Long returnStationId, Date returnTime);
 }

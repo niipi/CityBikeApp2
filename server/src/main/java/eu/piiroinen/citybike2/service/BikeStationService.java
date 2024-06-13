@@ -29,7 +29,7 @@ public class BikeStationService implements BikeStationServiceInterface{
     }
 
     @Override
-    public BikeStation getBikeStationById(Long bikeStationId) {
+    public BikeStation getBikeStationById(Long bikeStationId) throws NoSuchElementException {
         if (this.bikeStationRepository.findById(bikeStationId).isPresent()) {
             return this.bikeStationRepository.findById(bikeStationId).get();
         }

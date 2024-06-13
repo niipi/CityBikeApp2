@@ -13,8 +13,8 @@ public interface JourneyRepository extends CrudRepository<Journey, Long> {
     List<Journey> findByDepartureStationId(Long departureStationId);
     List<Journey> findByReturnStationId(Long returnStationId);
     List<Journey> findByDepartureStationIdAndReturnStationId(Long departureStationId, Long returnStationId);
-    int countJourneysByDepartureStationId(Long departureStationId);
-    int countJourneysByReturnStationId(Long returnStationId);
-    int countJourneysByDepartureStationIdAndDepartureTime(Long departureStationId, Date departureTime);
-    int countJourneysByReturnStationIdAndReturnTime(Long returnStationId, Date returnTime);
+    Long countJourneysByDepartureStationId(Long departureStationId);
+    Long countJourneysByReturnStationId(Long returnStationId);
+    Long countJourneysByDepartureStationIdAndDepartureTime(Long departureStationId, Date departureTime);
+    Long countJourneysByReturnStationIdAndReturnTime(Long returnStationId, Date returnTime);
 }

@@ -21,7 +21,7 @@ import java.util.NoSuchElementException;
 @RequestMapping("/bikestation")
 public class BikeStationController {
 
-    private static final Logger LOG = LoggerFactory.getLogger(BikeStationService.class);
+    private static final Logger LOG = LoggerFactory.getLogger(BikeStationController.class);
 
     @Autowired
     private BikeStationService bikeStationService;
