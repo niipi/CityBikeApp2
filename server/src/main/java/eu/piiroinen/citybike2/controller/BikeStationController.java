@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.NoSuchElementException;
 
 @Controller
 @RequestMapping("/bikestation")
@@ -44,15 +45,15 @@ public class BikeStationController {
     public ResponseEntity<Map<String, BikeStation>> getBikeStationById(
             @PathVariable(name="id") Long bikeStationId) {
         Map<String, BikeStation> response = new HashMap<>();
-        try {
-            response.put("selectedBikeStation", this.bikeStationService.getBikeStationById(bikeStationId));
+        BikeStation selectedBikeStation = this.bikeStationService.getBikeStationById(bikeStationId);
+        if (selectedBikeStation != null) {
+            response.put("selectedBikeStation", selectedBikeStation);
             return ResponseEntity.ok()
                     .contentType(MediaType.APPLICATION_JSON)
                     .body(response);
-        } catch (Exception e) {
-            LOG.error("An exception occurred retrieving bike station with id {}: ", bikeStationId, e);
-            return ResponseEntity.internalServerError()
-                    .body(new HashMap<>());
+        } else {
+            LOG.info("Throwing new NoSuchElementException for bikestation id {}", bikeStationId);
+            throw new NoSuchElementException();
         }
     }
 }
