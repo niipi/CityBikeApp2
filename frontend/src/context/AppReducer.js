@@ -11,6 +11,16 @@ export default (state, action) => {
                 ...state,
                 selectedBikeStation: payload,
             };
+        case "GET_RETURNING_JOURNEYS":
+            return {
+                ...state,
+                returningJourneys: payload,
+            }
+        case "GET_DEPARTING_JOURNEYS":
+            return {
+                ...state,
+                departingJourneys: payload,
+            }
         default:
             return state;
     }

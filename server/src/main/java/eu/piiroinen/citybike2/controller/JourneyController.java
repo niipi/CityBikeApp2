@@ -1,7 +1,6 @@
 package eu.piiroinen.citybike2.controller;
 
 import eu.piiroinen.citybike2.repository.BikeStationRepository;
-import eu.piiroinen.citybike2.service.BikeStationService;
 import eu.piiroinen.citybike2.service.JourneyService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,6 +28,7 @@ public class JourneyController {
             @PathVariable(name="id") Long bikeStationId) {
         if (this.bikeStationRepository.existsById(bikeStationId)) {
             Long countReturning = this.journeyService.getCountJourneysByReturnStationId(bikeStationId);
+            LOG.info("Returning count for station id {} is {}", bikeStationId, countReturning);
             return ResponseEntity.ok()
                     .body(countReturning);
         } else throw new NoSuchElementException();
@@ -40,6 +40,7 @@ public class JourneyController {
             @PathVariable(name="id") Long bikeStationId) {
         if (this.bikeStationRepository.existsById(bikeStationId)) {
             Long countDeparting = this.journeyService.getCountJourneysByDepartureStationId(bikeStationId);
+            LOG.info("Departing count for station id {} is {}", bikeStationId, countDeparting);
             return ResponseEntity.ok()
                     .body(countDeparting);
         } else throw new NoSuchElementException();

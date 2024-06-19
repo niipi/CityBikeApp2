@@ -44,7 +44,8 @@ public class Citybike2Application {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/bikestation/**").allowedOrigins(LOCALHOST);
+				registry.addMapping("/bikestation/**").allowedOrigins(LOCALHOST).allowedMethods("GET");
+				registry.addMapping("/journey/**").allowedOrigins(LOCALHOST).allowedMethods("GET");
 			}
 		};
 	}

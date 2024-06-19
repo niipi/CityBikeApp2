@@ -1,5 +1,5 @@
 import {MapContainer, Marker, TileLayer, Popup} from "react-leaflet";
-import {useContext, useState, useEffect} from "react";
+import {useContext, useState, useEffect, useRef} from "react";
 import StationContext from "../context/StationContext";
 import BikeStationInfoCard from "./BikeStationInfoCard";
 import {Icon} from "leaflet/src/layer";
@@ -7,18 +7,22 @@ import locationPinSvg from "../assets/locationpin.svg"
 import {Button} from "react-bootstrap";
 
 function MapView() {
-    const { bikestations, getSelectedStation, selectedBikeStation } = useContext(StationContext);
+    const { bikestations, getSelectedStation, selectedBikeStation, getReturningJourneys, getDepartingJourneys } = useContext(StationContext);
     const locationPin = new Icon({iconUrl: locationPinSvg})
     const [visibleInfoCard, setVisibleInfoCard] = useState(false);
+    const allInfoIsLoaded = useRef(false);
     async function handleStationClick(id) {
         let selected = await getSelectedStation(id);
-        console.log("Selected station from click: ", selected);
-        console.log("Updating state of current station, before update: ", selectedBikeStation);
-        console.log("Station state updated, current selection is: ", selectedBikeStation);
+        await getReturningJourneys(selected.id);
+        await getDepartingJourneys(selected.id);
+        allInfoIsLoaded.current = true;
     }
 
     useEffect(() => {
-        if (selectedBikeStation) setVisibleInfoCard(true);
+        if (selectedBikeStation && allInfoIsLoaded.current) {
+        setVisibleInfoCard(true);
+        allInfoIsLoaded.current = false;
+    }
         else setVisibleInfoCard(false);
     }, [selectedBikeStation]);
 
